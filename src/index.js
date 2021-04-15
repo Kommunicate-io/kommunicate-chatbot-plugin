@@ -1,14 +1,27 @@
-import React from 'react'
+let Kommunicate = {};
 
-const Kommunicate = (appId) => {
-          let d = window.top.document;
-          let m = window.top.kommunicate;
-          let kommunicateSettings = 
-              {"appId":`${appId}`,"popupWidget":true,"automaticChatOpenOnNavigation":true};
-          let s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-          s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-          let h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-          window.kommunicate = m; m._globals = kommunicateSettings;
-
+Kommunicate.init = (settings, env) => {
+    let scriptSource = "https://widget.kommunicate.io/v2/kommunicate.app";
+    
+        switch (env){
+            case "test":
+                scriptSource = "https://widget-test.kommunicate.io/v2/kommunicate.app";
+                break;
+            case "localhost":
+                scriptSource = "http://localhost:3030/v2/kommunicate.app";
+                break;
+            default:
+                scriptSource = "https://widget.kommunicate.io/v2/kommunicate.app";
+                break;
+        }
+    
+    (function(d, m){
+        var kommunicateSettings = settings;
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = scriptSource;
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
 }
+
 export default Kommunicate;
