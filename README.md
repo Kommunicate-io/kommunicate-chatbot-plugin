@@ -1,9 +1,8 @@
 # kommunicate-widget
 
-> A npm plugin for kommunicate chat widget.
+> A npm plugin for kommunicates' chat widget.
 
-[![NPM](https://img.shields.io/npm/v/kommunicate-widget.svg)](https://www.npmjs.com/package/kommunicate-widget) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
+[![NPM](https://img.shields.io/npm/v/kommunicate-widget.svg)](https://www.npmjs.com/package/kommunicate-widget)
 ## Install
 
 ```bash
@@ -12,17 +11,23 @@ npm install --save kommunicate-widget
 
 ## Usage
 
+In your index.js file,
+
+1. Import the widget as Kommunicate.
+2. Replace YOUR_APP_ID with app Id provided to you by kommunicate.
+
+
 ```jsx
-import React, { Component } from 'react'
+import Kommunicate from 'kommunicate-widget';
 
-import MyComponent from 'kommunicate-widget'
-import 'kommunicate-widget/dist/index.css'
+Kommunicate.init("YOUR_APP_ID" , {...optionalSettings})
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+ReactDOM.render(
+  ...
+    <App />
+  ...
+  document.getElementById('root')
+);
 ```
 
 ## License
