@@ -28,7 +28,7 @@ Kommunicate.init = (appId, options) => {
         }
         settings = {
             ...settings,
-            options
+            ...options
         }
     };
     
