@@ -53,7 +53,6 @@ const Kommunicate: KommunicateType = {
         break
     }
     ;(function (d, m: any) {
-      console.log(m)
       const kommunicateSettings = settings
       const s = document.createElement('script')
       s.type = 'text/javascript'
